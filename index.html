@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ultimate House Clean</title>
-
-    <!-- ✅ LOGO EN LA PESTAÑA DEL NAVEGADOR -->
+    <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
     <style>
       body {
         margin: 0;
@@ -111,7 +109,6 @@
   <body>
     <!-- Header -->
     <header>
-      <!-- ✅ LOGO EN LA CABECERA DE LA PÁGINA -->
       <img src="logo.png" alt="Ultimate House Clean Logo" />
       <h1>Ultimate House Clean</h1>
       <p>More than clean — spotless.</p>
@@ -160,6 +157,9 @@
       <h2>Request a Cleaning</h2>
       <form action="https://formsubmit.co/contact.ultimatehouseclean@gmail.com" method="POST">
         <input type="hidden" name="_next" value="https://ultimatehouseclean.com/thank-you.html" />
+        <!-- Aquí está la línea para desactivar la verificación CAPTCHA -->
+        <input type="hidden" name="_captcha" value="false" />
+        
         <input type="text" name="Full Name" placeholder="Full name *" required />
         <input type="tel" name="Phone" placeholder="Phone number *" required />
         <input type="text" name="Address" placeholder="Home address *" required />
@@ -229,5 +229,3 @@
   </body>
 </html>
 
-
-    <!-- (el resto del HTML no cambia, ya está bien) -->
