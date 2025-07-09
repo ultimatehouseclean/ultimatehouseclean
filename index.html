@@ -20,16 +20,14 @@
         padding: 2rem 1rem;
       }
       header img {
-        max-width: 120px;
+        max-width: 150px;
         display: block;
         margin: 0 auto 1rem;
-      }
-      header h1 {
-        margin: 0.5rem 0;
-        font-size: 2.5rem;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
       }
       header p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        font-weight: bold;
         margin-bottom: 1.5rem;
       }
       .cta {
@@ -109,8 +107,7 @@
   <body>
     <!-- Header -->
     <header>
-      <img src="https://via.placeholder.com/150x150?text=Logo+Test" alt="Ultimate House Clean Logo" />
-      <h1>Ultimate House Clean</h1>
+      <img src="logo.png" alt="Ultimate House Clean Logo" />
       <p>More than clean — spotless.</p>
       <button class="cta" onclick="scrollToForm()">Book Now</button>
     </header>
@@ -157,9 +154,7 @@
       <h2>Request a Cleaning</h2>
       <form action="https://formsubmit.co/contact.ultimatehouseclean@gmail.com" method="POST">
         <input type="hidden" name="_next" value="https://ultimatehouseclean.com/thank-you.html" />
-        <!-- Aquí está la línea para desactivar la verificación CAPTCHA -->
         <input type="hidden" name="_captcha" value="false" />
-        
         <input type="text" name="Full Name" placeholder="Full name *" required />
         <input type="tel" name="Phone" placeholder="Phone number *" required />
         <input type="text" name="Address" placeholder="Home address *" required />
@@ -194,8 +189,7 @@
             font-weight: bold;
             margin-top: 1rem;
           "
-          >Send Info by WhatsApp</a
-        >
+        >Send Info by WhatsApp</a>
       </p>
       <p>Or call us 📞 (470) 461-7524</p>
       <p>Email: contact.ultimatehouseclean@gmail.com</p>
@@ -228,4 +222,3 @@
     </footer>
   </body>
 </html>
-
