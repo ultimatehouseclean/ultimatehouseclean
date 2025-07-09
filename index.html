@@ -25,7 +25,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 2rem 2rem;
+        padding: 3rem 2rem;
         position: sticky;
         top: 0;
         z-index: 1000;
@@ -33,23 +33,23 @@
       .logo-title {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 1.5rem;
       }
       .logo-title img {
-        max-width: 140px;
+        max-width: 180px;
       }
       .logo-title h1 {
         margin: 0;
-        font-size: 2.8rem;
+        font-size: 3.2rem;
         color: white;
       }
       header .cta {
         background: #ffffff;
         color: #a3d5ff;
-        padding: 0.8rem 1.5rem;
+        padding: 1rem 1.8rem;
         border: none;
         border-radius: 5px;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         cursor: pointer;
         font-weight: bold;
       }
@@ -68,6 +68,11 @@
       }
       .about-box h2 {
         margin-top: 0;
+      }
+      .about-box p:last-child {
+        margin-top: 1rem;
+        font-weight: bold;
+        color: #2c3e50;
       }
       .services,
       .gallery {
@@ -118,6 +123,17 @@
         color: #fff;
         font-size: 0.9rem;
       }
+      .footer-contact {
+        background: #2c3e50;
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .footer-contact a {
+        color: #a3d5ff;
+        text-decoration: none;
+        font-weight: bold;
+      }
     </style>
     <script>
       function scrollToForm() {
@@ -140,6 +156,7 @@
       <div class="about-box">
         <h2>About Us</h2>
         <p>At Ultimate House Clean, we are committed to delivering the highest standard of cleaning with care and attention to detail. With a passionate and trustworthy team, we treat your home like our own. Whether it's a one-time job or a recurring service, we tailor our approach to meet your unique needs. Clean homes, happy clients — that's our mission.</p>
+        <p>We are available every day, at any hour, to fit your schedule!</p>
       </div>
     </section>
 
@@ -207,25 +224,6 @@
         <input type="time" name="Time" required />
         <button type="submit">Submit Request</button>
       </form>
-      <p>
-        <a
-          href="https://wa.me/14704617524?text=I'm%20interested%20in%20your%20services.%0APlease%20fill%20out%20the%20following%20information%3A%0A%0AName%3A%20%0AAddress%3A%20%0APhone%20number%3A%20%0AType%20of%20service%3A%20"
-          target="_blank"
-          style="
-            display: inline-block;
-            background: #25d366;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-          "
-        >Send Info by WhatsApp</a>
-      </p>
-      <p>Or call us 📞 (470) 461-7524</p>
-      <p>Email: contact.ultimatehouseclean@gmail.com</p>
-      <p>Instagram: @ultimatehouseclean</p>
     </section>
 
     <!-- Reviews Section -->
@@ -249,6 +247,14 @@
     </section>
 
     <!-- Footer -->
+    <div class="footer-contact">
+      <p>
+        <a href="https://wa.me/14704617524" target="_blank">Send Info by WhatsApp</a>
+      </p>
+      <p>Or call us 📞 (470) 461-7524</p>
+      <p>Email: contact.ultimatehouseclean@gmail.com</p>
+      <p><a href="https://www.instagram.com/ultimatehouseclean/?hl=es" target="_blank">Instagram: @ultimatehouseclean</a></p>
+    </div>
     <footer>
       <p>&copy; 2025 Ultimate House Clean — All rights reserved.</p>
     </footer>
