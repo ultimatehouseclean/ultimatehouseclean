@@ -22,32 +22,36 @@
       header {
         background: #a3d5ff;
         color: #ffffff;
-        text-align: center;
-        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
-      header img {
-        max-width: 180px; /* tamaño aumentado */
-        display: block;
-        margin: 0 auto 1rem;
+      .logo-title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
       }
-      header h1 {
-        margin: 0.5rem 0;
-        font-size: 2.5rem;
+      .logo-title img {
+        max-width: 80px;
       }
-      header p {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
+      .logo-title h1 {
+        margin: 0;
+        font-size: 2rem;
+        color: white;
       }
-      .cta {
+      header .cta {
         background: #ffffff;
         color: #a3d5ff;
-        padding: 0.8rem 1.5rem;
+        padding: 0.6rem 1.2rem;
         border: none;
         border-radius: 5px;
         font-size: 1rem;
         cursor: pointer;
         font-weight: bold;
-        margin-top: 1rem;
       }
       .section {
         padding: 2rem 1rem;
@@ -106,18 +110,17 @@
     </style>
     <script>
       function scrollToForm() {
-        document
-          .getElementById("booking-form")
-          .scrollIntoView({ behavior: "smooth" });
+        document.getElementById("booking-form").scrollIntoView({ behavior: "smooth" });
       }
     </script>
   </head>
   <body>
     <!-- Header -->
     <header>
-      <img src="logo.png" alt="Ultimate House Clean Logo" />
-      <h1>Ultimate House Clean</h1>
-      <p>More than clean — spotless.</p>
+      <div class="logo-title">
+        <img src="logo.png" alt="Ultimate House Clean Logo" />
+        <h1>Ultimate House Clean</h1>
+      </div>
       <button class="cta" onclick="scrollToForm()">Book Now</button>
     </header>
 
@@ -164,7 +167,7 @@
       <form action="https://formsubmit.co/contact.ultimatehouseclean@gmail.com" method="POST">
         <input type="hidden" name="_next" value="https://ultimatehouseclean.com/thank-you.html" />
         <input type="hidden" name="_captcha" value="false" />
-        
+
         <input type="text" name="Full Name" placeholder="Full name *" required />
         <input type="tel" name="Phone" placeholder="Phone number *" required />
         <input type="text" name="Address" placeholder="Home address *" required />
@@ -232,4 +235,3 @@
     </footer>
   </body>
 </html>
-
