@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ultimate House Clean</title>
+
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
     <style>
       body {
         margin: 0;
@@ -20,12 +26,15 @@
         padding: 2rem 1rem;
       }
       header img {
-        max-width: 300px;
+        max-width: 200px;
         display: block;
         margin: 0 auto 1rem;
       }
+      header h1 {
+        display: none;
+      }
       header p {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         margin-bottom: 1.5rem;
       }
       .cta {
@@ -44,13 +53,10 @@
         max-width: 1000px;
         margin: auto;
       }
-      .services,
-      .gallery {
-        display: grid;
-        gap: 1.5rem;
-      }
       .services {
+        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
       }
       .service {
         text-align: center;
@@ -94,6 +100,7 @@
         font-size: 0.9rem;
       }
     </style>
+
     <script>
       function scrollToForm() {
         document
@@ -114,30 +121,12 @@
     <section class="section">
       <h2>Our Services</h2>
       <div class="services">
-        <div class="service">
-          <h3>Regular Cleaning</h3>
-          <p>Routine cleaning to keep your space fresh and neat.</p>
-        </div>
-        <div class="service">
-          <h3>Deep Cleaning</h3>
-          <p>Thorough top-to-bottom cleaning of your home or business.</p>
-        </div>
-        <div class="service">
-          <h3>Move-in / Move-out</h3>
-          <p>Cleaning services for those entering or leaving a space.</p>
-        </div>
-        <div class="service">
-          <h3>Post-Construction</h3>
-          <p>We remove dust and debris after renovations or building work.</p>
-        </div>
-        <div class="service">
-          <h3>Eco-Friendly Cleaning</h3>
-          <p>Using non-toxic, eco-conscious products for a safer clean.</p>
-        </div>
-        <div class="service">
-          <h3>Event Cleaning</h3>
-          <p>Before or after event cleaning for parties, weddings, and more.</p>
-        </div>
+        <div class="service"><h3>Regular Cleaning</h3><p>Routine cleaning to keep your space fresh and neat.</p></div>
+        <div class="service"><h3>Deep Cleaning</h3><p>Thorough top-to-bottom cleaning of your home or business.</p></div>
+        <div class="service"><h3>Move-in / Move-out</h3><p>Cleaning services for those entering or leaving a space.</p></div>
+        <div class="service"><h3>Post-Construction</h3><p>We remove dust and debris after renovations or building work.</p></div>
+        <div class="service"><h3>Eco-Friendly Cleaning</h3><p>Using non-toxic, eco-conscious products for a safer clean.</p></div>
+        <div class="service"><h3>Event Cleaning</h3><p>Before or after event cleaning for parties, weddings, and more.</p></div>
       </div>
     </section>
 
@@ -153,7 +142,6 @@
       <form action="https://formsubmit.co/contact.ultimatehouseclean@gmail.com" method="POST">
         <input type="hidden" name="_next" value="https://ultimatehouseclean.com/thank-you.html" />
         <input type="hidden" name="_captcha" value="false" />
-
         <input type="text" name="Full Name" placeholder="Full name *" required />
         <input type="tel" name="Phone" placeholder="Phone number *" required />
         <input type="text" name="Address" placeholder="Home address *" required />
@@ -175,21 +163,9 @@
         <button type="submit">Submit Request</button>
       </form>
       <p>
-        <a
-          href="https://wa.me/14704617524?text=I'm%20interested%20in%20your%20services.%0APlease%20fill%20out%20the%20following%20information%3A%0A%0AName%3A%20%0AAddress%3A%20%0APhone%20number%3A%20%0AType%20of%20service%3A%20"
-          target="_blank"
-          style="
-            display: inline-block;
-            background: #25d366;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-          "
-          >Send Info by WhatsApp</a
-        >
+        <a href="https://wa.me/14704617524?text=I'm%20interested%20in%20your%20services.%0APlease%20fill%20out%20the%20following%20information%3A%0A%0AName%3A%20%0AAddress%3A%20%0APhone%20number%3A%20%0AType%20of%20service%3A%20" target="_blank"
+          style="display: inline-block; background: #25d366; color: white; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 1rem;">
+          Send Info by WhatsApp</a>
       </p>
       <p>Or call us 📞 (470) 461-7524</p>
       <p>Email: contact.ultimatehouseclean@gmail.com</p>
@@ -200,18 +176,9 @@
     <section class="section">
       <h2>Customer Reviews</h2>
       <div class="services">
-        <div class="service">
-          <p>“Amazing service! My house looked brand new.”</p>
-          <strong>- Jessica R.</strong>
-        </div>
-        <div class="service">
-          <p>“Very professional and always on time. Highly recommend!”</p>
-          <strong>- David L.</strong>
-        </div>
-        <div class="service">
-          <p>“The deep cleaning service was perfect before our baby arrived.”</p>
-          <strong>- Maria C.</strong>
-        </div>
+        <div class="service"><p>“Amazing service! My house looked brand new.”</p><strong>- Jessica R.</strong></div>
+        <div class="service"><p>“Very professional and always on time. Highly recommend!”</p><strong>- David L.</strong></div>
+        <div class="service"><p>“The deep cleaning service was perfect before our baby arrived.”</p><strong>- Maria C.</strong></div>
       </div>
       <p>Want to leave your own review? <a href="#">Click here</a>.</p>
     </section>
