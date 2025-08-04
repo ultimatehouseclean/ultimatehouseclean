@@ -211,28 +211,30 @@
     <!-- Contact / Booking Form -->
     <section class="section contact" id="booking-form">
       <h2>Request a Cleaning</h2>
-      <form id="cleaningForm" action="https://script.google.com/macros/s/AKfycbwrC1NR4YvJNwHqYr56w1maf_tE0DqFAiWksMc6l4HhrnEgaUDEAJ1i13IjUtXZrBnN/exec" method="POST">
-        <input type="text" name="name" placeholder="Full name *" required />
-        <input type="tel" name="phone" placeholder="Phone number *" required />
-        <input type="text" name="address" placeholder="Home address *" required />
-        <input type="email" name="email" placeholder="Email address *" required />
-        <select name="service" required>
+      <form action="https://formsubmit.co/contact.ultimatehouseclean@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://ultimatehouseclean.com/thank-you.html" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <input type="text" name="Full Name" placeholder="Full name *" required />
+        <input type="tel" name="Phone" placeholder="Phone number *" required />
+        <input type="text" name="Address" placeholder="Home address *" required />
+        <input type="email" name="Email" placeholder="Email address *" required />
+        <select name="Cleaning type" required>
           <option value="">Cleaning type *</option>
-          <option value="Regular">Regular</option>
-          <option value="Deep Cleaning">Deep Cleaning</option>
-          <option value="Move-in / Move-Out Cleaning">Move-in / Move-Out</option>
-          <option value="Post-Construction">Post-Construction</option>
-          <option value="Eco Friendly">Eco Friendly</option>
-          <option value="Event Cleaning (Before or After)">Event Cleaning (Before or After)</option>
+          <option>Regular</option>
+          <option>Deep Cleaning</option>
+          <option>Move-in / Move-Out Cleaning</option>
+          <option>Post-Construction</option>
+          <option>Eco Friendly</option>
+          <option>Event Cleaning (Before or After)</option>
         </select>
-        <input type="number" name="bedrooms" placeholder="How many bedrooms *" required />
-        <input type="number" name="bathrooms" placeholder="How many bathrooms *" required />
-        <textarea name="message" placeholder="Additional details *" required></textarea>
-        <input type="date" name="date" required />
-        <input type="time" name="time" required />
+        <input type="number" name="Bedrooms" placeholder="How many bedrooms *" required />
+        <input type="number" name="Bathrooms" placeholder="How many bathrooms *" required />
+        <textarea name="Additional details" placeholder="Additional details *" required></textarea>
+        <input type="date" name="Date" required />
+        <input type="time" name="Time" required />
         <button type="submit">Submit Request</button>
       </form>
-      <div id="responseMessage" style="font-weight:bold; margin-top: 10px;"></div>
     </section>
 
     <!-- Reviews Section -->
@@ -267,32 +269,6 @@
     <footer>
       <p>&copy; 2025 Ultimate House Clean — All rights reserved.</p>
     </footer>
-
-    <script>
-      const form = document.getElementById('cleaningForm');
-      const responseMessage = document.getElementById('responseMessage');
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        responseMessage.textContent = '';
-        const formData = new FormData(form);
-
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-          });
-          // Since mode: 'no-cors', no response readable, so assume success
-          responseMessage.textContent = "✅ Form submitted successfully!";
-          form.reset();
-        } catch (error) {
-          responseMessage.textContent = "❌ There was an issue submitting the form.";
-        }
-      });
-    </script>
   </body>
 </html>
-
-
 
