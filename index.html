@@ -211,15 +211,12 @@
     <!-- Contact / Booking Form -->
     <section class="section contact" id="booking-form">
       <h2>Request a Cleaning</h2>
-      <form action="https://formsubmit.co/contact.ultimatehouseclean@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://ultimatehouseclean.com/thank-you.html" />
-        <input type="hidden" name="_captcha" value="false" />
-
-        <input type="text" name="Full Name" placeholder="Full name *" required />
+      <form id="cleaningForm">
+        <input type="text" name="FullName" placeholder="Full name *" required />
         <input type="tel" name="Phone" placeholder="Phone number *" required />
         <input type="text" name="Address" placeholder="Home address *" required />
         <input type="email" name="Email" placeholder="Email address *" required />
-        <select name="Cleaning type" required>
+        <select name="CleaningType" required>
           <option value="">Cleaning type *</option>
           <option>Regular</option>
           <option>Deep Cleaning</option>
@@ -228,9 +225,24 @@
           <option>Eco Friendly</option>
           <option>Event Cleaning (Before or After)</option>
         </select>
-        <input type="number" name="Bedrooms" placeholder="How many bedrooms *" required />
-        <input type="number" name="Bathrooms" placeholder="How many bathrooms *" required />
-        <textarea name="Additional details" placeholder="Additional details *" required></textarea>
+        <select name="Bedrooms" required>
+          <option value="">How many bedrooms *</option>
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+        </select>
+        <select name="Bathrooms" required>
+          <option value="">How many bathrooms *</option>
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+        </select>
+        <select name="SquareMeters" required>
+          <option value="">Square meters *</option>
+          <option>0-50</option>
+          <option>51-100</option>
+          <option>101-150</option>
+          <option>151-200</option>
+          <option>201-250</option>
+          <option>250+</option>
+        </select>
+        <textarea name="AdditionalDetails" placeholder="Additional details *" required></textarea>
         <input type="date" name="Date" required />
         <input type="time" name="Time" required />
         <button type="submit">Submit Request</button>
@@ -269,6 +281,43 @@
     <footer>
       <p>&copy; 2025 Ultimate House Clean — All rights reserved.</p>
     </footer>
+
+    <!-- Script to send form to Google Sheets -->
+    <script>
+      const form = document.getElementById('cleaningForm');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = {
+          name: formData.get('FullName'),
+          phone: formData.get('Phone'),
+          address: formData.get('Address'),
+          email: formData.get('Email'),
+          cleaningType: formData.get('CleaningType'),
+          bedrooms: formData.get('Bedrooms'),
+          bathrooms: formData.get('Bathrooms'),
+          squareMeters: formData.get('SquareMeters'),
+          details: formData.get('AdditionalDetails'),
+          date: formData.get('Date'),
+          time: formData.get('Time'),
+        };
+
+        fetch("https://script.google.com/macros/s/AKfycbx4A4s5m-N632W5TNPk4yAJ6KGYJNfhwFNL9Apjqs7QQw0RDU-mLnuilK2eJBTxmr9A/exec", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: { "Content-Type": "application/json" },
+        })
+          .then(response => {
+            alert("✅ Form submitted successfully!");
+            form.reset();
+          })
+          .catch(error => {
+            alert("❌ Error submitting the form.");
+            console.error("Error:", error);
+          });
+      });
+    </script>
   </body>
 </html>
+
 
