@@ -1,323 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ultimate House Clean</title>
+<form action="https://script.google.com/macros/s/AKfycbx4A4s5m-N632W5TNPk4yAJ6KGYJNfhwFNL9Apjqs7QQw0RDU-mLnuilK2eJBTxmr9A/exec" method="POST" id="cleaningForm">
+  <input type="text" name="name" placeholder="Full name *" required>
+  <input type="tel" name="phone" placeholder="Phone number *" required>
+  <input type="text" name="address" placeholder="Home address *" required>
+  <input type="email" name="email" placeholder="Email address *" required>
+  <select name="service" required>
+    <option value="">Cleaning type *</option>
+    <option value="Regular Cleaning">Regular</option>
+    <option value="Deep Cleaning">Deep Cleaning</option>
+    <option value="Move-in / Move-Out Cleaning">Move-in / Move-Out Cleaning</option>
+    <option value="Post-Construction">Post-Construction</option>
+    <option value="Eco Friendly">Eco Friendly</option>
+    <option value="Event Cleaning (Before or After)">Event Cleaning (Before or After)</option>
+  </select>
+  <input type="number" name="bedrooms" placeholder="How many bedrooms *" min="0" required>
+  <input type="number" name="bathrooms" placeholder="How many bathrooms *" min="0" required>
+  <input type="number" name="squarefeet" placeholder="Square Feet *" min="0" required>
+  <textarea name="message" placeholder="Additional details *" required></textarea>
+  <input type="date" name="date" required />
+  <input type="time" name="time" required />
+  <button type="submit">Submit Request</button>
+</form>
 
-    <!-- Favicon (icono del navegador) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<div id="responseMessage"></div>
 
-    <style>
-      body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        color: #2c3e50;
-        background: #ffffff;
-      }
-      header {
-        background: #a3d5ff;
-        color: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1.4rem 2rem;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-      .logo-title {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-      .logo-title img {
-        max-width: 110px;
-      }
-      .logo-title h1 {
-        margin: 0;
-        font-size: 2.2rem;
-        color: white;
-      }
-      header .cta {
-        background: #ffffff;
-        color: #a3d5ff;
-        padding: 1rem 1.8rem;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        font-weight: bold;
-      }
-      .section {
-        padding: 2rem 1rem;
-        max-width: 1000px;
-        margin: auto;
-      }
-      .about-box {
-        background-color: #f0f8ff;
-        border: 2px solid #a3d5ff;
-        border-radius: 12px;
-        padding: 2rem;
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-      .about-box h2 {
-        margin-top: 0;
-      }
-      .about-box p:last-child {
-        margin-top: 1rem;
-        font-weight: bold;
-        color: #2c3e50;
-      }
-      .services,
-      .gallery {
-        display: grid;
-        gap: 1.5rem;
-      }
-      .services {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-      .service {
-        text-align: center;
-        padding: 1rem;
-        border: 1px solid #eee;
-        border-radius: 8px;
-      }
-      .service h3 {
-        margin: 0.5rem 0;
-      }
-      .contact {
-        background: #f7f9fa;
-        border-radius: 8px;
-        padding: 1.5rem;
-      }
-      input,
-      select,
-      textarea {
-        width: 100%;
-        padding: 0.8rem;
-        margin-bottom: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-family: "Poppins", sans-serif;
-      }
-      button[type="submit"] {
-        background: #a3d5ff;
-        color: white;
-        padding: 0.8rem 1.5rem;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      footer {
-        text-align: center;
-        padding: 1rem;
-        background: #2c3e50;
-        color: #fff;
-        font-size: 0.9rem;
-      }
-      .footer-contact {
-        background: #2c3e50;
-        color: white;
-        padding: 2rem;
-        text-align: center;
-      }
-      .footer-contact a {
-        color: #a3d5ff;
-        text-decoration: none;
-        font-weight: bold;
-        display: inline-block;
-        margin: 0.3rem 1rem;
-      }
-      .footer-icons {
-        margin-top: 1rem;
-      }
-      .footer-icons a {
-        color: #ffffff;
-        margin: 0 10px;
-        font-size: 1.4rem;
-      }
-    </style>
-    <script>
-      function scrollToForm() {
-        document.getElementById("booking-form").scrollIntoView({ behavior: "smooth" });
-      }
-    </script>
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="logo-title">
-        <img src="logo.png" alt="Ultimate House Clean Logo" />
-        <h1>Ultimate House Clean</h1>
-      </div>
-      <button class="cta" onclick="scrollToForm()">Book Now</button>
-    </header>
+<script>
+  const form = document.getElementById('cleaningForm');
+  const responseMessage = document.getElementById('responseMessage');
 
-    <!-- About Us Section -->
-    <section class="section">
-      <div class="about-box">
-        <h2>About Us</h2>
-        <p>At Ultimate House Clean, we are committed to delivering the highest standard of cleaning with care and attention to detail. With a passionate and trustworthy team, we treat your home like our own. Whether it's a one-time job or a recurring service, we tailor our approach to meet your unique needs. Clean homes, happy clients — that's our mission.</p>
-        <p>We are available every day, at any hour, to fit your schedule!</p>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section">
-      <h2>Our Services</h2>
-      <div class="services">
-        <div class="service">
-          <h3>Regular Cleaning</h3>
-          <p>Routine cleaning to keep your space fresh and neat.</p>
-        </div>
-        <div class="service">
-          <h3>Deep Cleaning</h3>
-          <p>Thorough top-to-bottom cleaning of your home or business.</p>
-        </div>
-        <div class="service">
-          <h3>Move-in / Move-out</h3>
-          <p>Cleaning services for those entering or leaving a space.</p>
-        </div>
-        <div class="service">
-          <h3>Post-Construction</h3>
-          <p>We remove dust and debris after renovations or building work.</p>
-        </div>
-        <div class="service">
-          <h3>Eco-Friendly Cleaning</h3>
-          <p>Using non-toxic, eco-conscious products for a safer clean.</p>
-        </div>
-        <div class="service">
-          <h3>Event Cleaning</h3>
-          <p>Before or after event cleaning for parties, weddings, and more.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Service Area -->
-    <section class="section">
-      <h2>Areas We Serve</h2>
-      <p>We serve <strong>Atlanta, GA and surrounding areas</strong>.</p>
-    </section>
-
-    <!-- Contact / Booking Form -->
-    <section class="section contact" id="booking-form">
-      <h2>Request a Cleaning</h2>
-      <form id="cleaningForm">
-        <input type="text" name="FullName" placeholder="Full name *" required />
-        <input type="tel" name="Phone" placeholder="Phone number *" required />
-        <input type="text" name="Address" placeholder="Home address *" required />
-        <input type="email" name="Email" placeholder="Email address *" required />
-        <select name="CleaningType" required>
-          <option value="">Cleaning type *</option>
-          <option>Regular</option>
-          <option>Deep Cleaning</option>
-          <option>Move-in / Move-Out Cleaning</option>
-          <option>Post-Construction</option>
-          <option>Eco Friendly</option>
-          <option>Event Cleaning (Before or After)</option>
-        </select>
-        <select name="Bedrooms" required>
-          <option value="">How many bedrooms *</option>
-          <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
-        </select>
-        <select name="Bathrooms" required>
-          <option value="">How many bathrooms *</option>
-          <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
-        </select>
-        <select name="SquareMeters" required>
-          <option value="">Square meters *</option>
-          <option>0-50</option>
-          <option>51-100</option>
-          <option>101-150</option>
-          <option>151-200</option>
-          <option>201-250</option>
-          <option>250+</option>
-        </select>
-        <textarea name="AdditionalDetails" placeholder="Additional details *" required></textarea>
-        <input type="date" name="Date" required />
-        <input type="time" name="Time" required />
-        <button type="submit">Submit Request</button>
-      </form>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="section">
-      <h2>Customer Reviews</h2>
-      <div class="services">
-        <div class="service">
-          <p>“Amazing service! My house looked brand new.”</p>
-          <strong>- Jessica R.</strong>
-        </div>
-        <div class="service">
-          <p>“Very professional and always on time. Highly recommend!”</p>
-          <strong>- David L.</strong>
-        </div>
-        <div class="service">
-          <p>“The deep cleaning service was perfect before our baby arrived.”</p>
-          <strong>- Maria C.</strong>
-        </div>
-      </div>
-      <p>Want to leave your own review? <a href="#">Click here</a>.</p>
-    </section>
-
-    <!-- Footer Contact and Socials -->
-    <div class="footer-contact">
-      <p><a href="https://wa.me/14704617524" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></p>
-      <p><i class="fas fa-phone"></i> (470) 461-7524</p>
-      <p><i class="fas fa-envelope"></i> contact.ultimatehouseclean@gmail.com</p>
-      <p><a href="https://www.instagram.com/ultimatehouseclean/?hl=es" target="_blank"><i class="fab fa-instagram"></i> Instagram: @ultimatehouseclean</a></p>
-    </div>
-
-    <!-- Footer Copyright -->
-    <footer>
-      <p>&copy; 2025 Ultimate House Clean — All rights reserved.</p>
-    </footer>
-
-    <!-- Script to send form to Google Sheets -->
-    <script>
-      const form = document.getElementById('cleaningForm');
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const data = {
-          name: formData.get('FullName'),
-          phone: formData.get('Phone'),
-          address: formData.get('Address'),
-          email: formData.get('Email'),
-          cleaningType: formData.get('CleaningType'),
-          bedrooms: formData.get('Bedrooms'),
-          bathrooms: formData.get('Bathrooms'),
-          squareMeters: formData.get('SquareMeters'),
-          details: formData.get('AdditionalDetails'),
-          date: formData.get('Date'),
-          time: formData.get('Time'),
-        };
-
-        fetch("https://script.google.com/macros/s/AKfycbx4A4s5m-N632W5TNPk4yAJ6KGYJNfhwFNL9Apjqs7QQw0RDU-mLnuilK2eJBTxmr9A/exec", {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: { "Content-Type": "application/json" },
-        })
-          .then(response => {
-            alert("✅ Form submitted successfully!");
-            form.reset();
-          })
-          .catch(error => {
-            alert("❌ Error submitting the form.");
-            console.error("Error:", error);
-          });
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
       });
-    </script>
-  </body>
-</html>
+      const text = await response.text();
+      if (text.trim().toLowerCase() === "success") {
+        responseMessage.textContent = "✅ Form submitted successfully!";
+        form.reset();
+      } else {
+        responseMessage.textContent = "❌ There was an issue submitting the form.";
+      }
+    } catch (error) {
+      responseMessage.textContent = "❌ Error: " + error.message;
+    }
+  });
+</script>
 
 
